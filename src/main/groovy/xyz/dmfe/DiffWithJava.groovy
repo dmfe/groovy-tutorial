@@ -1,5 +1,6 @@
 package xyz.dmfe
 
+import xyz.dmfe.arm.ArmBlockGroovy
 import xyz.dmfe.organization.Organization
 import xyz.dmfe.person.Person
 
@@ -31,6 +32,8 @@ class DiffWithJava {
         organization.addEmployee(person)
         organization.addEmployee(personTwo)
         organization.printEmployees()
+
+        ArmBlockGroovy.printFile('/arm_test.txt', 'UTF-8')
     }
 
     static int method(String arg) {

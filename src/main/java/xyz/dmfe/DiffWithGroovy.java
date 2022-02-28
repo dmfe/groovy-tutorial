@@ -1,7 +1,9 @@
 package xyz.dmfe;
 
+import xyz.dmfe.arm.ArmBlockJava;
+
 public class DiffWithGroovy {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Object o = "String";
         int result = method(o);
 
@@ -19,6 +21,11 @@ public class DiffWithGroovy {
         for (int a : array2) {
             System.out.print(a + " ");
         }
+
+        System.out.println();
+
+        ArmBlockJava armBlockJava = new ArmBlockJava("arm_test.txt", "UTF-8");
+        armBlockJava.printFile();
     }
 
     static int method(String arg) {
