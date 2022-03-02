@@ -1,6 +1,7 @@
 package xyz.dmfe;
 
 import xyz.dmfe.arm.ArmBlockJava;
+import xyz.dmfe.inner.NonStaticInner;
 
 public class DiffWithGroovy {
     public static void main(String[] args) throws Exception {
@@ -26,6 +27,14 @@ public class DiffWithGroovy {
 
         ArmBlockJava armBlockJava = new ArmBlockJava("arm_test.txt", "UTF-8");
         armBlockJava.printFile();
+
+        NonStaticInner nsi = new NonStaticInner();
+
+        NonStaticInner.Inner innerOne = nsi.foo();
+        innerOne.introduceSelf();
+
+        NonStaticInner.Inner innerTwo = NonStaticInner.createInner(nsi);
+        innerTwo.introduceSelf();
     }
 
     static int method(String arg) {

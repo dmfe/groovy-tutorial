@@ -1,6 +1,8 @@
 package xyz.dmfe
 
 import xyz.dmfe.arm.ArmBlockGroovy
+import xyz.dmfe.inner.AnonymousInnerGroovy
+import xyz.dmfe.inner.NonStaticInnerGroovy
 import xyz.dmfe.organization.Organization
 import xyz.dmfe.person.Person
 
@@ -34,6 +36,16 @@ class DiffWithJava {
         organization.printEmployees()
 
         ArmBlockGroovy.printFile('/arm_test.txt', 'UTF-8')
+
+        new AnonymousInnerGroovy().runTimer()
+
+        NonStaticInnerGroovy nsiGroovy = new NonStaticInnerGroovy()
+
+        NonStaticInnerGroovy.Inner innerOne = nsiGroovy.foo()
+        innerOne.introduceSelf()
+
+        NonStaticInnerGroovy.Inner innerTwo = NonStaticInnerGroovy.createInner(nsiGroovy)
+        innerTwo.introduceSelf()
     }
 
     static int method(String arg) {
